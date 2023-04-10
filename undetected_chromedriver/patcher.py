@@ -106,7 +106,9 @@ class Patcher(object):
             self.force = force
 
         try:
-            os.unlink(self.executable_path)
+            pass
+            #i dont care just leave it there
+            #os.unlink(self.executable_path)
         except PermissionError:
             if self.force:
                 self.force_kill_instances(self.executable_path)
