@@ -126,11 +126,13 @@ class Patcher(object):
         release = self.fetch_release_number()
         self.version_main = release.version[0]
         self.version_full = release
-        self.unzip_package(self.fetch_package())
+        if not os.path.exists(self.executable_path):
+            self.unzip_package(self.fetch_package())
         return self.patch()
 
     def patch(self):
-        self.patch_exe()
+        if not self.is_binary_patched():
+            self.patch_exe()
         return self.is_binary_patched()
 
     def fetch_release_number(self):
