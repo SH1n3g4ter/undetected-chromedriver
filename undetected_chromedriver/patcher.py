@@ -267,8 +267,8 @@ class Patcher(object):
                     )
                     break
                 try:
-                    os.unlink(self.executable_path)
-                    logger.debug("successfully unlinked %s" % self.executable_path)
+                    #os.unlink(self.executable_path)
+                    #logger.debug("successfully unlinked %s" % self.executable_path)
                     break
                 except (OSError, RuntimeError, PermissionError):
                     time.sleep(0.1)
