@@ -312,6 +312,8 @@ class Patcher(object):
                         % (self.executable_path, now - t)
                     )
                     break
+                except FileNotFoundError:
+                    break
                 except (OSError, RuntimeError, PermissionError) as e:
                     logger.debug(
                         "cuold not unlink %s because of %s . remaining seconds left: %.3f "
@@ -319,5 +321,4 @@ class Patcher(object):
                     )
                     time.sleep(0.1)
                     continue
-                except FileNotFoundError:
-                    break
+                
